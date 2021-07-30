@@ -1,9 +1,9 @@
 import '../styles.css';
-import dishs from '../menu.json';
+import dishes from '../menu.json';
 import itemsDish from '../templates/menu-items.hbs';
 
 const galleryRef = document.querySelector('.js-menu');
-const markUp = itemsDish(dishs);
+const markUp = itemsDish(dishes);
 galleryRef.insertAdjacentHTML('beforeend', markUp);
 
 const Theme = {
