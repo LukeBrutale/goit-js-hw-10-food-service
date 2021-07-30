@@ -19,29 +19,15 @@ const refs = {
 };
 
 //устанавливает тему по умолчанию
-installThemDefault();
+installThemeDefault();
 //возобновляет текущую тему после перезагрузки
 installThemeReload();
 
 //Обработчик клика по переключателю темы
-refs.checkboxEl.addEventListener('change', onChangeThem);
+refs.checkboxEl.addEventListener('change', onChangeTheme);
 
-//Колбек клика по переключателю темы
-function onChangeThem(evt) {
-  //меняем темы при событии
-  let theme = '';
-  if (refs.bodyEl.classList.contains(Theme.LIGHT)) {
-    refs.bodyEl.classList.replace(Theme.LIGHT, Theme.DARK);
-    theme = Theme.DARK;
-    localStorage.setItem(PAGE_THEME, theme);
-  } else {
-    refs.bodyEl.classList.replace(Theme.DARK, Theme.LIGHT);
-    theme = Theme.LIGHT;
-    localStorage.setItem(PAGE_THEME, theme);
-  }
-}
 
-function installThemDefault() {
+function installThemeDefault() {
   const valTheme = localStorage.getItem(PAGE_THEME);
   if (!valTheme) {
     refs.bodyEl.classList.add(Theme.LIGHT);
@@ -54,5 +40,20 @@ function installThemeReload() {
   } else {
     refs.bodyEl.classList.add(Theme.DARK);
     refs.checkboxEl.checked = true;
+  }
+}
+
+//Колбек клика по переключателю темы
+function onChangeTheme(evt) {
+  //меняем темы при событии
+  let theme = '';
+  if (refs.bodyEl.classList.contains(Theme.LIGHT)) {
+    refs.bodyEl.classList.replace(Theme.LIGHT, Theme.DARK);
+    theme = Theme.DARK;
+    localStorage.setItem(PAGE_THEME, theme);
+  } else {
+    refs.bodyEl.classList.replace(Theme.DARK, Theme.LIGHT);
+    theme = Theme.LIGHT;
+    localStorage.setItem(PAGE_THEME, theme);
   }
 }
