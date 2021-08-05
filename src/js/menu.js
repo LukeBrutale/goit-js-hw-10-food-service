@@ -30,7 +30,7 @@ refs.checkboxEl.addEventListener('change', onChangeTheme);
 function installThemeDefault() {
   const valTheme = localStorage.getItem(PAGE_THEME);
   if (!valTheme) {
-    refs.bodyEl.classList.add(Theme.LIGHT);
+    refs.bodyEl.classList.add(Theme.DARK);
   }
 }
 function installThemeReload() {
