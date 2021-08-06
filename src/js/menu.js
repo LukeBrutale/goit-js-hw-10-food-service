@@ -33,13 +33,15 @@ function installThemeDefault() {
     refs.bodyEl.classList.add(Theme.LIGHT);
   }
 }
+
 function installThemeReload() {
   const valueTheme = localStorage.getItem(PAGE_THEME);
-  if (valueTheme === Theme.LIGHT) {
-    refs.bodyEl.classList.add(Theme.LIGHT);
-  } else {
+  if (valueTheme === Theme.DARK) {
     refs.bodyEl.classList.add(Theme.DARK);
     refs.checkboxEl.checked = true;
+  } else {
+    refs.bodyEl.classList.add(Theme.LIGHT);
+    
   }
 }
 
@@ -57,3 +59,4 @@ function onChangeTheme(evt) {
     localStorage.setItem(PAGE_THEME, theme);
   }
 }
+
